@@ -50,13 +50,25 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header">
                         <h4>Data Pembayaran</h4>
                     </div>
                     <div class="card-body">
-                        <canvas id="myChart" height="158"></canvas>
+                        {{-- <canvas id="myChart"></canvas> --}}
+                        <canvas id="pie" style="width:100%;max-width:600px"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Data Pembayaran</h4>
+                    </div>
+                    <div class="card-body">
+                        {{-- <canvas id="myChart"></canvas> --}}
+                        <canvas id="bar" style="width:100%;max-width:600px"></canvas>
                     </div>
                 </div>
             </div>
@@ -103,7 +115,7 @@
                         <h4>Jadwal Dokter</h4>
                     </div>
                     <div class="card-body p-0">
-                        <div class="container mb-3" style="width: 40%; float: right;">
+                        <div class="container mb-3" style="width: 70%; float: right;">
                             <div class="input-group mb-1">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text" style="border-top-left-radius:30px; border-bottom-left-radius:30px; background-color: #66CDAA;"><i class="fas fa-calendar-alt"></i></div>
