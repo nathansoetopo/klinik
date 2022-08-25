@@ -25,7 +25,7 @@
                 </a>
             </div>
         </li>
-        <img alt="image" src="{{asset('stisla/assets/img/avatar/avatar-1.png')}}" class="rounded-circle mr-1"
+        <img alt="image" src="{{asset('assets/img/avatar/avatar-1.png')}}" class="rounded-circle mr-1"
             style="width:30px">
     </ul>
 </nav>

@@ -130,12 +130,12 @@
                         <div class="table-responsive table-invoice">
                             <table class="table table-striped">
                                 <tr>
-                                    <td style="width: 30%; text-align:center"><img alt="image" src="{{asset('stisla/assets/img/avatar/avatar-1.png')}}" class="rounded-circle mr-1"
+                                    <td style="width: 30%; text-align:center"><img alt="image" src="{{asset('assets/img/avatar/avatar-1.png')}}" class="rounded-circle mr-1"
                                     style="width:50px"></td>
                                     <td class="font-weight-600 pt-3" style="text-align: left">Dr. Diki Mustoffa Jadab <br> <p>Dokter Anak</p></td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 30%; text-align:center"><img alt="image" src="{{asset('stisla/assets/img/avatar/avatar-1.png')}}" class="rounded-circle mr-1"
+                                    <td style="width: 30%; text-align:center"><img alt="image" src="{{asset('assets/img/avatar/avatar-1.png')}}" class="rounded-circle mr-1"
                                     style="width:50px"></td>
                                     <td class="font-weight-600 pt-3" style="text-align: left">Dr. Samsudin Jadab <br> <p>Dokter Mental</p></td>
                                 </tr>
