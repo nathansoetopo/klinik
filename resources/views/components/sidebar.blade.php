@@ -7,7 +7,7 @@
             <a href="index.html">St</a>
         </div>
         <ul class="sidebar-menu">
-            <li><a class="nav-link active" href="credits.html"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
+            <li><a class="nav-link active" href="{{url('/')}}"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
             <li><a class="nav-link" href="credits.html"><i class="fas fa-user"></i> <span>Data Pasien</span></a>
             </li>
         </ul>
