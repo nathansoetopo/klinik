@@ -17,17 +17,14 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check())
-        {
+        if (Auth::check()) {
             $user = request()->user();
-            if($user->hasRole('admin'))
-            {
+            if ($user->hasRole('admin')) {
                 return $next($request);
             }
-            Auth::logout('admin');
-            return redirect('login')->with('status','Anda bukan admin');
+            Auth::logout($user);
+            return redirect('login')->with('error', 'Anda bukan admin');
         }
-        return redirect('login')->with('status','Anda belum login');
-
+        return redirect('login')->with('error', 'Anda belum login');
     }
 }

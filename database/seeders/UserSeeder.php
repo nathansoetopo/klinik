@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
         collect([
             [
                 'name' => 'Admin',
+                'username' => 'admin',
                 'email' => 'admin@test.test',
                 'password' => Hash::make('password'),
             ],
