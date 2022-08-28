@@ -7,14 +7,14 @@
             <a href="index.html">St</a>
         </div>
         <ul class="sidebar-menu">
-            <li><a class="nav-link active" href="credits.html"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
-            <li><a class="nav-link" href="{{ url('datapasien') }}"><i class="fas fa-user"></i> <span>Data Pasien</span></a>
+            <li><a class="nav-link active" href="{{url('/')}}"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
+            <li><a class="nav-link" href="{{ url('/admin/data-pasien') }}"><i class="fas fa-user"></i> <span>Data Pasien</span></a>
             </li>
         </ul>
         <div class="hide-sidebar-mini" style="position:fixed; bottom:3vh; width:250px;">
             <hr style="border-radius: 5px; border: 2px solid #66CDAA; margin-left:5%; margin-right:5%">
             <ul class="sidebar-menu">
-                <li><a class="nav-link" href="credits.html"><i class="fas fa-power-off"></i> <span>Log Out</span></a>
+                <li><a class="nav-link" href="{{ url('logout') }}"><i class="fas fa-power-off"></i> <span>Log Out</span></a>
             </ul>
         </div>
     </aside>

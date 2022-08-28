@@ -2871,7 +2871,8 @@ body.layout-3 .main-footer {
 .main-content {
   padding-left: 280px;
   padding-right: 30px;
-  padding-top: 80px;
+  /* Padding Asli 80px */
+  padding-top: 75px;
   width: 100%;
   position: relative; }
 

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('datapasien');
-});
-Route::get('/datapasien', function () {
-    return view('datapasien');
-});
-Route::get('/datapasiendetail', function () {
-    return view('datapasiendetail');
-});
-Route::get('/login', function () {
-    return view('auth.login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/profile', function () {
+        return view('auth.profile');
+    });
+    Route::middleware('is.admin')->group(function () {
+        Route::prefix('admin')->group(function () {
+            Route::get('/', [AdminController::class, 'index']);
+            Route::get('/data-pasien', [AdminController::class, 'dataPasien']);
+        });
+    });
+    Route::get('/', function () {
+    });
 });
