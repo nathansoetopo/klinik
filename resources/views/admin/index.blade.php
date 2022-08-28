@@ -40,7 +40,7 @@
                     <div class="card-stats">
                         <div class="card-stats-title">Total Pasien</div>
                         <div class="card-stats-items pl-4">
-                            <h2>1.234</h2>
+                            <h2>{{$today->count()}}</h2>
                         </div>
                     </div>
                     <div class="card-wrap">
@@ -55,7 +55,7 @@
                     <div class="card-stats">
                         <div class="card-stats-title">Status Perawatan</div>
                         <div class="card-stats-items pl-4">
-                            <h2>1.234</h2>
+                            <h2>{{$year->count()}}</h2>
                         </div>
                     </div>
                     <div class="card-wrap">

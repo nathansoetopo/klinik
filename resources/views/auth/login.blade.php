@@ -12,131 +12,99 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-    <!-- CSS Libraries -->
-    <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
-
-    <style>
-        body {
-            background-image: url('../images/bg-rms.jpg');
-            background-size: 100%;
-            background-repeat: no-repeat;
-        }
-
-    </style>
+    <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
 </head>
 
-<body>
+<body style="background-image: url('login.png'); background-repeat:no-repeat; background-size: cover;">
     <div id="app">
-        <section class="section">
-            @if ($errors->any())
-            @foreach ($errors->all() as $error)
-            <div class="alert alert-warning alert-dismissible show fade">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>
-                    {{ $error }}
-                </div>
-            </div>
-            @endforeach
-            @endif
-            @if (session('status'))
-            <div class="alert alert-info alert-dismissible show fade">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>
-                    {{ session('status') }}
-                </div>
-            </div>
-            @endif
-            @if (session('error'))
-            <div class="alert alert-danger alert-dismissible show fade">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>
-                    {{ session('error') }}
-                </div>
-            </div>
-            @endif
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-12 col-sm-3 of
-          fset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                        <div class="login-brand">
-                            <img src="../images/logo2.png" class="block text pl-5 pr-5" style="height: 5em" />
-                            <a style="color: black;" class="">
-                                <h5>PT. RUSYIDA MITRA PERKASA</h5>
-                            </a>
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                    <div class="login-brand">
+                        <h1 class="text-white">Nama Klinik</h1>
+                    </div>
+                    <div class="card" style="border-radius:30px; border-top:solid #66CDAA;">
+                        <div class="card-header">
+                            <h4>Login</h4>
                         </div>
-
-                        <div class="card card-primary">
-                            <div class="card-header row justify-content-center">
-                                <h3>Login</h3>
+                        <div class="card-body">
+                            @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                            <div class="alert alert-warning alert-dismissible show fade">
+                                <div class="alert-body">
+                                    <button class="close" data-dismiss="alert">
+                                        <span>&times;</span>
+                                    </button>
+                                    {{ $error }}
+                                </div>
                             </div>
-
-                            <div class="card-body">
-                                <form method="POST" action="#" class="needs-validation" novalidate="">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="email">Username/Email</label>
-                                        <input style="border-radius: 30px;" id="email" type="text" class="form-control"
-                                            name="credential" tabindex="1" required autofocus>
-                                        <div class="invalid-feedback">
-                                            Isi email anda
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="d-block">
-                                            <label for="password" class="control-label">Password</label>
-                                            <div class="float-right">
-                                                {{-- <a style="color: black;" href="auth-forgot-password.html" class="text-small">
-                          Lupa Password?
-                        </a> --}}
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <input
-                                                style="border-top-left-radius: 30px; border-bottom-left-radius: 30px;"
-                                                id="password" type="password" class="form-control" name="password"
-                                                tabindex="2" required>
-                                            <span style="border-top-right-radius:30px; border-bottom-right-radius:30px;"
-                                                class="input-group-text">
-                                                <i class="fas fa-eye" id="togglePassword" style="cursor: pointer;"></i>
-                                            </span>
-                                        </div>
-                                        <!--<input style="border-radius: 30px;" id="password" type="password" class="form-control" name="password" tabindex="2" required>-->
-                                        <div class="invalid-feedback">
-                                            Isi password anda
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="remember" class="custom-control-input"
-                                                tabindex="3" id="remember-me">
-                                            <label class="custom-control-label" for="remember-me">Ingat Saya</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-light btn-lg btn-block" tabindex="4">
-                                            Login
-                                        </button>
-                                    </div>
-                                </form>
+                            @endforeach
+                            @endif
+                            @if (session('status'))
+                            <div class="alert alert-info alert-dismissible show fade">
+                                <div class="alert-body">
+                                    <button class="close" data-dismiss="alert">
+                                        <span>&times;</span>
+                                    </button>
+                                    {{ session('status') }}
+                                </div>
                             </div>
+                            @endif
+                            @if (session('error'))
+                            <div class="alert alert-danger alert-dismissible show fade">
+                                <div class="alert-body">
+                                    <button class="close" data-dismiss="alert">
+                                        <span>&times;</span>
+                                    </button>
+                                    {{ session('error') }}
+                                </div>
+                            </div>
+                            @endif
+                            <form method="POST" action="{{url('login')}}" class="needs-validation" novalidate="">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="text" class="form-control" name="credential" tabindex="1"
+                                        required autofocus>
+                                    <div class="invalid-feedback">
+                                        Please fill in your email
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="d-block">
+                                        <label for="password" class="control-label">Password</label>
+                                    </div>
+                                    <input id="password" type="password" class="form-control" name="password"
+                                        tabindex="2" required>
+                                    <div class="invalid-feedback">
+                                        please fill in your password
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <a href="auth-forgot-password.html" class="text-small" style="color: #66CDAA">
+                                        Forgot Password?
+                                    </a>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-md btn-block" tabindex="4"
+                                        style="border-radius: 30px; background-color:#66CDAA; color:aliceblue">
+                                        Masuk
+                                    </button>
+                                </div>
+                            </form>
                         </div>
+                    </div>
+                    <div class="simple-footer text-white">
+                        Powered By &copy; Lantern Tech 2022
                     </div>
                 </div>
             </div>
-    </div>
-    </section>
+        </div>
     </div>
 
     <!-- General JS Scripts -->
@@ -150,28 +118,15 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="../assets/js/stisla.js"></script>
+    <script src="{{asset('assets/js/stisla.js')}}"></script>
 
     <!-- JS Libraies -->
 
     <!-- Template JS File -->
-    <script src="{{ asset('assets/js/scripts.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{asset('assets/js/scripts.js')}}"></script>
+    <script src="{{asset('assets/js/custom.js')}}"></script>
 
     <!-- Page Specific JS File -->
-    <script>
-        const togglePassword = document.querySelector('#togglePassword');
-        const password = document.querySelector('#password');
-
-        togglePassword.addEventListener('click', function (e) {
-            // toggle the type attribute
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            // toggle the eye slash icon
-            //this.classList.toggle('fas-eye-slash');
-        });
-
-    </script>
 </body>
 
 </html>
