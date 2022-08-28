@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/login', function () {
-    return view('auth.login');
-});
-Route::get('/profile', function () {
-    return view('auth.profile');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/profile', function () {
+        return view('auth.profile');
+    });
+    Route::middleware('is.admin')->group(function () {
+        Route::prefix('admin')->group(function () {
+            Route::get('/', [AdminController::class, 'index']);
+        });
+    });
+    Route::get('/', function () {
+    });
 });

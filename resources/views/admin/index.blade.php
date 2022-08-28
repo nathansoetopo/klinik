@@ -2,6 +2,38 @@
 @section('content')
 <div class="main-content">
     <section class="section">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+            <div class="alert alert-warning alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                    {{ $error }}
+                </div>
+            </div>
+            @endforeach
+            @endif
+            @if (session('status'))
+            <div class="alert alert-info alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                    {{ session('status') }}
+                </div>
+            </div>
+            @endif
+            @if (session('error'))
+            <div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                    {{ session('error') }}
+                </div>
+            </div>
+            @endif
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-statistic-2 card-dashboard pb-3">

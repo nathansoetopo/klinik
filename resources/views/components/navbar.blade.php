@@ -6,15 +6,15 @@
     <ul class="navbar-nav navbar-right ml-auto">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user" style="color: black">
-                <div class="d-sm-none d-lg-inline-block text-dark">Hi, Ujang Maman</div>
+                <div class="d-sm-none d-lg-inline-block text-dark">Hi, {{ request()->user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 {{-- <div class="dropdown-title">Logged in 5 min ago</div> --}}
-                <a href="/profile" class="dropdown-item has-icon">
+                <a href="{{ url('/profile') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item has-icon text-danger">
+                <a href="{{ url('logout') }}" class="dropdown-item has-icon text-danger">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </div>
