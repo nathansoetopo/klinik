@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('datapasien');
+});
+Route::get('/datapasien', function () {
+    return view('datapasien');
+});
+Route::get('/datapasiendetail', function () {
+    return view('datapasiendetail');
 });
 Route::get('/login', function () {
     return view('auth.login');

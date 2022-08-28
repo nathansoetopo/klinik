@@ -8,7 +8,7 @@
         </div>
         <ul class="sidebar-menu">
             <li><a class="nav-link active" href="credits.html"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
-            <li><a class="nav-link" href="credits.html"><i class="fas fa-user"></i> <span>Data Pasien</span></a>
+            <li><a class="nav-link" href="{{ url('datapasien') }}"><i class="fas fa-user"></i> <span>Data Pasien</span></a>
             </li>
         </ul>
         <div class="hide-sidebar-mini" style="position:fixed; bottom:3vh; width:250px;">
