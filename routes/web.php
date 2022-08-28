@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('is.admin')->group(function () {
         Route::prefix('admin')->group(function () {
             Route::get('/', [AdminController::class, 'index']);
+            Route::get('/data-pasien', [AdminController::class, 'dataPasien']);
         });
     });
     Route::get('/', function () {

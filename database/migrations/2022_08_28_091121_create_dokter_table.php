@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pasien', function (Blueprint $table) {
+        Schema::create('dokter', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('no_reg')->nullable();
+            $table->string('no_doc')->nullable();
             $table->date('ttl')->nullable();
             $table->string('alamat')->nullable();
-            $table->string('pekerjaan', 100)->nullable();
-            $table->enum('jenis_pembayaran', ['UMUM', 'BPJS'])->nullable();
-            $table->enum('status_pelayanan', ['DONE', 'PROGRESS', 'CANCELLED'])->default('PROGRESS');
+            $table->string('spesialis', 255)->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pasien');
+        Schema::dropIfExists('dokter');
     }
 };
