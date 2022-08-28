@@ -31,3 +31,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
     });
 });
+// Progress Slicing
