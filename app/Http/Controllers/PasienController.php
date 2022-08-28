@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\DokterRepository;
+use App\Repositories\PasienRepository;
 
 class PasienController extends Controller
 {
-    public function index(){
+    private PasienRepository $pasienRepository;
+    private DokterRepository $dokterRepository;
 
-        $pasien = Pasien::all();
-
+    public function __construct(PasienRepository $pasienRepository, DokterRepository $dokterRepository)
+    {
+        $this->pasienRepository = $pasienRepository;
+        $this->dokterRepository = $dokterRepository;
     }
 }

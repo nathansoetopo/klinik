@@ -20,7 +20,15 @@ class RoleSeeder extends Seeder
                 'name' => 'admin',
                 'guard_name' => 'web',
             ],
-        ])->each(function($roles){
+            [
+                'name' => 'dokter',
+                'guard_name' => 'web',
+            ],
+            [
+                'name' => 'pasien',
+                'guard_name' => 'web',
+            ],
+        ])->each(function ($roles) {
             Role::firstOrcreate($roles);
         });
     }
