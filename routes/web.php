@@ -28,7 +28,8 @@ Route::middleware('auth')->group(function () {
             Route::get('/data-pasien', [AdminController::class, 'dataPasien']);
         });
     });
-    Route::get('/', function () {
-    });
 });
 // Progress Slicing
+Route::get('/datapasiendetail', function () {
+    return view('datapasiendetail');
+});

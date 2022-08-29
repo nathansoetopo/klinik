@@ -1020,9 +1020,9 @@ table tr:hover .table-links {
 
 /* 3.9 Nav */
 .nav-tabs .nav-item .nav-link {
-  color: #6777ef; }
+  color: #8A8A8A; }
   .nav-tabs .nav-item .nav-link.active {
-    color: #000; }
+    color: #66CDAA; }
 
 .tab-content > .tab-pane {
   padding: 10px 0;
