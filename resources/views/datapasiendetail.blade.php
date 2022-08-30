@@ -18,8 +18,8 @@
             <div class="col-12 col-md-3 col-lg-3">
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-sm">
+                        <div class="container">
+                            <table class="table">
                                 <tbody class="" style="align-content: center">
                                     <tr>
                                         <td class="d-flex justify-content-center">Nama Pasien</td>
@@ -264,9 +264,9 @@
                                             <label for="tindakan">Tindakan Keperawatan</label>
                                             <select class="form-control js-example-basic-multiple" name="tindakan[]"
                                                 id="tindakan" multiple="multiple">
-                                                <option value="AL">Alabama</option>
-                                                <option value="ID">Indonesia</option>
-                                                <option value="WY">Wyoming</option>
+                                                <option value="AL">Tindakan 1</option>
+                                                <option value="ID">Tindakan 2</option>
+                                                <option value="WY">Tindakan 3</option>
                                             </select>
                                         </div>
                                         <div class="text-tab mt-5">
@@ -326,362 +326,292 @@
                             <div id="menu2" class="tab-pane fade" style="background-color: white">
                                 <div class="card">
                                     <div class="card-body">
-                                        <label>Obat</label>
-                                        <div class="form-group">
-                                            <textarea class="form-control col-12"></textarea>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-7">
-                                                <label for="inputCity">Nama obat</label>
-                                                <input type="text" class="form-control" id="inputCity">
-                                            </div>
-                                            <div class="form-group col-md-5">
-                                                <label for="inputState">Jumlah</label>
-                                                <select class="custom-select" style="height: 42px">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-7">
-                                                <label for="inputEmail4">Aturan pakai</label>
-                                                <input type="email" class="form-control" id="inputEmail4"
-                                                    placeholder="Email">
-                                            </div>
-                                            <div class="form-group col-md-5">
-                                                <label for="inputPassword4">Tanggal</label>
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">@</div>
-                                                        <input type="date" class="form-control">
+                                        <form action="{{url('test-post-data')}}" method="POST" id="form-obat">
+                                            @csrf
+                                            <div class="container">
+                                                <label for="obat">Obat</label>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" id="obat" name="obat[0][obat]"
+                                                        placeholder="Masukkan Obat" style="height:100px;"></textarea>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-7">
+                                                        <label for="inputObat">Nama obat</label>
+                                                        <select class="form-control" id="inputObat"
+                                                            name="obat[0][select]">'>
+                                                            <option value="1">Obat 1</option>
+                                                            <option value="2">Obat 2</option>
+                                                            <option value="3">Obat 3</option>
+                                                        </select>
                                                     </div>
+                                                    <div class="form-group col-md-5">
+                                                        <label for="inputState">Jumlah</label>
+                                                        <input type="number" name="obat[0][qty]" class="form-control"
+                                                            min="1" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-7">
+                                                        <label for="aturan">Aturan pakai</label>
+                                                        <select class="form-control" name="obat[0][aturan]" id="aturan">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-5">
+                                                        <label for="tgl">Tanggal</label>
+                                                        <input type="date" name="obat[0][tanggal]" class="form-control"
+                                                            id="tgl" required>
+                                                    </div>
+                                                </div>
+                                                <center>
+                                                    <div class="buttons">
+                                                        <button type="button" id="addForm"
+                                                            class="w-70 btn btn-lg text-white"
+                                                            style="background-color: #2B5BFF">Tambah</button>
+                                                    </div>
+                                                </center>
+                                            </div>
+                                        </form>
+                                        <div class="container mt-5">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label" for="inlineCheckbox1">Apakah anda
+                                                    yakin untuk menyimpan resep ini?</label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 p-3">
+                                                    <button type="submit" class="btn btn-lg text-white"
+                                                        form="form-obat"
+                                                        style="background-color: #2B5BFF; width:100%">Simpan</button>
+                                                </div>
+                                                <div class="col-6 p-3">
+                                                    <button type="button"
+                                                        class="btn btn-lg text-danger btn-outline-danger"
+                                                        form="form-obat" style="width:100%">Batal</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <center>
-                                    <div class="buttons">
-                                        <a href="#" class="btn btn"
-                                            style="background-color: #2B5BFF; color:white">Primary</a>
-                                    </div>
-                                </center>
                             </div>
                             <div id="menu3" class="tab-pane fade" style="background-color: white">
-                                <h4>Cresep</h4>
-
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="text-tab">
+                                            <h5>Objective</h5>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="card-body table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Aksi</th>
+                                                    <th scope="col">Detail Resep</th>
+                                                    <th scope="col">Tanggal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><button type="button" id="copy1" class="btn rounded text-white"
+                                                            onclick="copyClipboard('Autan, Borax, Didik',1)"
+                                                            style="background-color: #2B5BFF">copy</button></td>
+                                                    <td>Autan, Borax, Didik</td>
+                                                    <td>12-09-2022</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><button type="button" id="copy2" class="btn rounded text-white"
+                                                            onclick="copyClipboard('Autan, Borax, Didik',2)"
+                                                            style="background-color: #2B5BFF">copy</button></td>
+                                                    <td>Autan, Borax, Didik</td>
+                                                    <td>12-09-2022</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                             <div id="menu4" class="tab-pane fade" style="background-color: white">
-                                <label>Diagnosa Klinis</label>
-                                <div class="form-group">
-                                    <textarea class="form-control col-12"></textarea>
-                                </div>
-                                <label>Informasi Tambahan</label>
-                                <div class="form-group">
-                                    <textarea class="form-control col-12"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputEmail4">Nama Pemerikasaan</label>
-                                    <select class="custom-select" style="height: 42px">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                                <center>
-                                    <div class="buttons">
-                                        <a href="#" class="btn btn-primary"
-                                            style="background-color: #2B5BFF; color:white">Simpan</a>
-                                        <a href="#" class="btn btn-secondary"
-                                            style="background-color: white; color:#2B5BFF; border-color:#2B5BFF">Batal</a>
+                                <form action="#" method="POST">
+                                    @csrf
+                                    <div class="container">
+                                        <label for="diagnosa">Diagnosa Klinis</label>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="diagnosa" placeholder="Masukkan Diagnosa"
+                                                style="height: 100px"></textarea>
+                                        </div>
+                                        <label for="infoTambahan">Informasi Tambahan</label>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="infoTambahan"
+                                                placeholder="Masukkan Informasi Tambahan"
+                                                style="height: 100px"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="namaPemeriksaan">Nama Pemeriksaan</label>
+                                            <select class="js-example-basic-multiple" style="height: 42px"
+                                                id="namaPemeriksaan" name="namaPemeriksaan[]" multiple>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 p-3">
+                                                <button type="submit" class="btn btn-lg text-white"
+                                                    style="background-color: #2B5BFF; width:100%">Simpan</button>
+                                            </div>
+                                            <div class="col-6 p-3">
+                                                <button type="button" class="btn btn-lg text-danger btn-outline-danger"
+                                                    form="form-obat" style="width:100%">Batal</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </center>
-
+                                </form>
                             </div>
                             <div id="menu5" class="tab-pane fade" style="background-color: white">
-                                <label>Diagnosa Klinis</label>
-                                <div class="form-group">
-                                    <textarea class="form-control col-12"></textarea>
-                                </div>
-                                <label>Informasi Tambahan</label>
-                                <div class="form-group">
-                                    <textarea class="form-control col-12"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputEmail4">Nama Pemerikasaan</label>
-                                    <select class="custom-select" style="height: 42px">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                                <center>
-                                    <div class="buttons">
-                                        <a href="#" class="btn btn-primary"
-                                            style="background-color: #2B5BFF; color:white">Simpan</a>
-                                        <a href="#" class="btn btn-secondary"
-                                            style="background-color: white; color:#2B5BFF; border-color:#2B5BFF">Batal</a>
+                                <form action="" method="POST">
+                                    @csrf
+                                    <div class="container">
+                                        <label for="diagnosaRad">Diagnosa Klinis</label>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="diagnosaRad" name="diagnosaRad"
+                                                placeholder="Masukkan Diagnosa" style="height: 100px"></textarea>
+                                        </div>
+                                        <label for="informasiRad">Informasi Tambahan</label>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="informasiRad" name="informasiRad"
+                                                placeholder="Masukkan Infromasi" style="height: 100px"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="namaPemeriksaanRad">Nama Pemeriksaan</label>
+                                            <select class="js-example-basic-multiple" style="height: 42px"
+                                                id="namaPemeriksaanRad" name="namaPemeriksaanRad[]" multiple>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 p-3">
+                                                <button type="submit" class="btn btn-lg text-white"
+                                                    style="background-color: #2B5BFF; width:100%">Simpan</button>
+                                            </div>
+                                            <div class="col-6 p-3">
+                                                <button type="button" class="btn btn-lg text-danger btn-outline-danger"
+                                                    form="form-obat" style="width:100%">Batal</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </center>
+                                </form>
                             </div>
                             <div id="menu6" class="tab-pane fade" style="background-color: white">
-                                <label>Diagnosa</label>
-                                <div class="form-group">
-                                    <textarea class="form-control col-12"></textarea>
-                                </div>
-                                <label>Tindakan/Terapi</label>
-                                <div class="form-group">
-                                    <textarea class="form-control col-12"></textarea>
-                                </div>
-                                <label>Alasan Kontrol</label>
-                                <div class="form-group">
-                                    <textarea class="form-control col-12"></textarea>
-                                </div>
-                                <label>Rencana Tindak Lanjut</label>
-                                <div class="form-group">
-                                    <textarea class="form-control col-12"></textarea>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-5">
-                                        <label for="inputPassword4">Jadwal Kontrol</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">@</div>
-                                                <input type="date" class="form-control">
+                                <div class="container">
+                                    <label id="diagnosaKontrol">Diagnosa</label>
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="diagnosaKontrol" id="diagnosaKontrol"
+                                            style="height: 100px;"></textarea>
+                                    </div>
+                                    <label for="terapi">Tindakan/Terapi</label>
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="tindakaTerapi" id="terapi"
+                                            style="height: 100px;"></textarea>
+                                    </div>
+                                    <label for="alasanKontrol">Alasan Kontrol</label>
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="alasanKontrol" name="alasanKontrol"
+                                            style="height: 100px;"></textarea>
+                                    </div>
+                                    <label id="rtl">Rencana Tindak Lanjut</label>
+                                    <div class="form-group">
+                                        <textarea class="form-control col-12" id="rtl" name="rtl"
+                                            style="height: 100px;"></textarea>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-5">
+                                            <label for="jadwalKontrol">Jadwal Kontrol</label>
+                                            <div class="input-group mb-2">
+                                                <input type="date" name="jadwalKontrol" class="form-control"
+                                                    id="jadwalKontrol">
                                             </div>
                                         </div>
+                                        <div class="form-group col-md-7">
+                                            <label for="pembayaran">Jenis Pembayaran Kontrol</label>
+                                            <select class="custom-select" id="pembayaran" style="height: 42px">
+                                                <option selected>Open this select menu</option>
+                                                <option value="Umum">Umum</option>
+                                                <option value="BPJS">BPJS</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-7">
-                                        <label for="inputEmail4">Jenis Pembayaran Kontrol</label>
-                                        <select class="custom-select" style="height: 42px">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
+                                    <div class="row">
+                                        <div class="col-6 p-3">
+                                            <button type="submit" class="btn btn-lg text-white"
+                                                style="background-color: #2B5BFF; width:100%">Simpan</button>
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <button type="button" class="btn btn-lg text-danger btn-outline-danger"
+                                                form="form-obat" style="width:100%">Batal</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <center>
-                                    <div class="buttons">
-                                        <a href="#" class="btn btn-primary"
-                                            style="background-color: #2B5BFF; color:white">Simpan</a>
-                                        <a href="#" class="btn btn-secondary"
-                                            style="background-color: white; color:#2B5BFF; border-color:#2B5BFF">Batal</a>
+                                <div class="container mt-4">
+                                    <div class="table-responsive" style="border: solid #8A8A8A">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Aksi</th>
+                                                    <th scope="col">Tanggal Kontrol</th>
+                                                    <th scope="col">Diagnosa</th>
+                                                    <th scope="col">Tindakan</th>
+                                                    <th scope="col">Pembayaran</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="pt-4 pb-4">
+                                                        <div class="col-12 pl-3 pr-3"><button
+                                                                class="btn btn-danger w-100 btn-sm mt-1">Hapus</button>
+                                                        </div>
+                                                        <div class="col-12 pl-3 pr-3"><button
+                                                                class="btn btn-success w-100 btn-sm mt-1">Cetak</button>
+                                                        </div>
+                                                        <div class="col-12 pl-3 pr-3"><button
+                                                                class="btn btn-info w-100 btn-sm mt-1">Kirim</button>
+                                                        </div>
+                                                    </td>
+                                                    <td>12-09-2022</td>
+                                                    <td>Kesakitan</td>
+                                                    <td>Operasi</td>
+                                                    <td>Umum</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-4 pb-4">
+                                                        <div class="col-12 pl-3 pr-3"><button
+                                                                class="btn btn-danger w-100 btn-sm mt-1">Hapus</button>
+                                                        </div>
+                                                        <div class="col-12 pl-3 pr-3"><button
+                                                                class="btn btn-success w-100 btn-sm mt-1">Cetak</button>
+                                                        </div>
+                                                        <div class="col-12 pl-3 pr-3"><button
+                                                                class="btn btn-info w-100 btn-sm mt-1">Kirim</button>
+                                                        </div>
+                                                    </td>
+                                                    <td>12-09-2022</td>
+                                                    <td>Kesakitan</td>
+                                                    <td>Operasi</td>
+                                                    <td>Umum</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                </center>
+                                </div>
                             </div>
                         </div>
-                        {{-- <div class="table-responsive">
-                            <table class="table table-sm">
-                                <tbody class="" style="align-content: center">
-                                    <!DOCTYPE html>
-                                    <html lang="en">
-
-                                    <head>
-                                        <title>Bootstrap Example</title>
-                                        <meta charset="utf-8">
-                                        <meta name="viewport" content="width=device-width, initial-scale=1">
-                                        <link rel="stylesheet"
-                                            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-                                        </script>
-                                        <script
-                                            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
-                                        </script>
-                                    </head>
-
-                                    <body>
-
-                                        <div class="">
-                                            <ul class="nav nav-tabs">
-                                                <li class="active"><a data-toggle="tab" href="#home1">Riwayat Medis</a>
-                                                </li>
-                                                <li><a data-toggle="tab" href="#menu1">S O A P</a></li>
-                                                <li><a data-toggle="tab" href="#menu2">Resep</a></li>
-                                                <li><a data-toggle="tab" href="#menu3">CResep</a></li>
-                                                <li><a data-toggle="tab" href="#menu4">LAB</a></li>
-                                                <li><a data-toggle="tab" href="#menu5">RAD</a></li>
-                                                <li><a data-toggle="tab" href="#menu6">Kontrol</a></li>
-                                            </ul>
-
-                                            <div class="tab-content">
-                                                <div id="home1" class="tab-pane fade in active"
-                                                    style="background-color: white">
-                                                    <h3>Riwayat Medis</h3>
-
-                                                </div>
-                                                <div id="menu1" class="tab-pane fade" style="background-color: white">
-                                                    <h3>S O A P</h3>
-
-                                                </div>
-                                                <div id="menu2" class="tab-pane fade" style="background-color: white">
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <label>Obat</label>
-                                                            <div class="form-group">
-                                                                <textarea class="form-control col-12"></textarea>
-                                                            </div>
-                                                            <div class="form-row">
-                                                                <div class="form-group col-md-7">
-                                                                    <label for="inputCity">Nama obat</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inputCity">
-                                                                </div>
-                                                                <div class="form-group col-md-5">
-                                                                    <label for="inputState">Jumlah</label>
-                                                                    <select class="custom-select" style="height: 42px">
-                                                                        <option selected>Open this select menu</option>
-                                                                        <option value="1">One</option>
-                                                                        <option value="2">Two</option>
-                                                                        <option value="3">Three</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-row">
-                                                                <div class="form-group col-md-7">
-                                                                    <label for="inputEmail4">Aturan pakai</label>
-                                                                    <input type="email" class="form-control"
-                                                                        id="inputEmail4" placeholder="Email">
-                                                                </div>
-                                                                <div class="form-group col-md-5">
-                                                                    <label for="inputPassword4">Tanggal</label>
-                                                                    <div class="input-group mb-2">
-                                                                        <div class="input-group-prepend">
-                                                                            <div class="input-group-text">@</div>
-                                                                            <input type="date" class="form-control">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <center>
-                                                        <div class="buttons">
-                                                            <a href="#" class="btn btn"
-                                                                style="background-color: #2B5BFF; color:white">Primary</a>
-                                                        </div>
-                                                    </center>
-                                                </div>
-                                                <div id="menu3" class="tab-pane fade" style="background-color: white">
-                                                    <h4>Cresep</h4>
-
-                                                </div>
-                                                <div id="menu4" class="tab-pane fade" style="background-color: white">
-                                                    <label>Diagnosa Klinis</label>
-                                                    <div class="form-group">
-                                                        <textarea class="form-control col-12"></textarea>
-                                                    </div>
-                                                    <label>Informasi Tambahan</label>
-                                                    <div class="form-group">
-                                                        <textarea class="form-control col-12"></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="inputEmail4">Nama Pemerikasaan</label>
-                                                        <select class="custom-select" style="height: 42px">
-                                                            <option selected>Open this select menu</option>
-                                                            <option value="1">One</option>
-                                                            <option value="2">Two</option>
-                                                            <option value="3">Three</option>
-                                                        </select>
-                                                    </div>
-                                                    <center>
-                                                        <div class="buttons">
-                                                            <a href="#" class="btn btn-primary"
-                                                                style="background-color: #2B5BFF; color:white">Simpan</a>
-                                                            <a href="#" class="btn btn-secondary"
-                                                                style="background-color: white; color:#2B5BFF; border-color:#2B5BFF">Batal</a>
-                                                        </div>
-                                                    </center>
-
-                                                </div>
-                                                <div id="menu5" class="tab-pane fade" style="background-color: white">
-                                                    <label>Diagnosa Klinis</label>
-                                                    <div class="form-group">
-                                                        <textarea class="form-control col-12"></textarea>
-                                                    </div>
-                                                    <label>Informasi Tambahan</label>
-                                                    <div class="form-group">
-                                                        <textarea class="form-control col-12"></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="inputEmail4">Nama Pemerikasaan</label>
-                                                        <select class="custom-select" style="height: 42px">
-                                                            <option selected>Open this select menu</option>
-                                                            <option value="1">One</option>
-                                                            <option value="2">Two</option>
-                                                            <option value="3">Three</option>
-                                                        </select>
-                                                    </div>
-                                                    <center>
-                                                        <div class="buttons">
-                                                            <a href="#" class="btn btn-primary"
-                                                                style="background-color: #2B5BFF; color:white">Simpan</a>
-                                                            <a href="#" class="btn btn-secondary"
-                                                                style="background-color: white; color:#2B5BFF; border-color:#2B5BFF">Batal</a>
-                                                        </div>
-                                                    </center>
-                                                </div>
-                                                <div id="menu6" class="tab-pane fade" style="background-color: white">
-                                                    <label>Diagnosa</label>
-                                                    <div class="form-group">
-                                                        <textarea class="form-control col-12"></textarea>
-                                                    </div>
-                                                    <label>Tindakan/Terapi</label>
-                                                    <div class="form-group">
-                                                        <textarea class="form-control col-12"></textarea>
-                                                    </div>
-                                                    <label>Alasan Kontrol</label>
-                                                    <div class="form-group">
-                                                        <textarea class="form-control col-12"></textarea>
-                                                    </div>
-                                                    <label>Rencana Tindak Lanjut</label>
-                                                    <div class="form-group">
-                                                        <textarea class="form-control col-12"></textarea>
-                                                    </div>
-                                                    <div class="form-row">
-                                                        <div class="form-group col-md-5">
-                                                            <label for="inputPassword4">Jadwal Kontrol</label>
-                                                            <div class="input-group mb-2">
-                                                                <div class="input-group-prepend">
-                                                                    <div class="input-group-text">@</div>
-                                                                    <input type="date" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-7">
-                                                            <label for="inputEmail4">Jenis Pembayaran Kontrol</label>
-                                                            <select class="custom-select" style="height: 42px">
-                                                                <option selected>Open this select menu</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <center>
-                                                        <div class="buttons">
-                                                            <a href="#" class="btn btn-primary"
-                                                                style="background-color: #2B5BFF; color:white">Simpan</a>
-                                                            <a href="#" class="btn btn-secondary"
-                                                                style="background-color: white; color:#2B5BFF; border-color:#2B5BFF">Batal</a>
-                                                        </div>
-                                                    </center>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </body>
-
-                                    </html>
-
-                                </tbody>
-                            </table>
-                        </div> --}}
                     </div>
                 </div>
             </div>

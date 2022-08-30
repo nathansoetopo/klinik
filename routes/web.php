@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +27,14 @@ Route::middleware('auth')->group(function () {
         Route::prefix('admin')->group(function () {
             Route::get('/', [AdminController::class, 'index']);
             Route::get('/data-pasien', [AdminController::class, 'dataPasien']);
+            Route::get('/datapasiendetail', function () {
+                return view('datapasiendetail');
+            });
         });
     });
 });
-// Progress Slicing
+// Progress Slicing dan Test
 Route::get('/datapasiendetail', function () {
     return view('datapasiendetail');
 });
+Route::post('/test-post-data', [TestController::class, 'getData']);

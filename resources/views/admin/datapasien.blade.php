@@ -83,7 +83,7 @@
                                 </tr>
                                 @foreach ($pasien as $p)
                                 <tr>
-                                    <td><a href="#">{{ $p->no_reg }}</a></td>
+                                    <td><a href="{{url('admin/datapasiendetail')}}">{{ $p->no_reg }}</a></td>
                                     <td class="font-weight-600">{{ $p->users->name }}</td>
                                     <td>
                                         @if($p->jenis_pembayaran == 'UMUM')
@@ -103,7 +103,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-secondary">Detail</a>
+                                        <a href="{{url('admin/datapasiendetail')}}" class="btn btn-secondary">Detail</a>
                                     </td>
                                 </tr>
                                 @endforeach
