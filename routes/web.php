@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\TestController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PasienController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ Route::middleware('auth')->group(function () {
         Route::prefix('admin')->group(function () {
             Route::get('/', [AdminController::class, 'index']);
             Route::get('/data-pasien', [AdminController::class, 'dataPasien']);
+            Route::post('/data-pasien', [PasienController::class, 'store']);
+            Route::post('/data-pasien/{pasienID}/update', [PasienController::class, 'update']);
+            Route::get('/data-pasien/{pasienID}/delete', [PasienController::class, 'delete']);
             Route::get('/datapasiendetail', function () {
                 return view('datapasiendetail');
             });

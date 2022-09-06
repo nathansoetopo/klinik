@@ -17,12 +17,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('no_reg')->nullable();
-            $table->date('ttl')->nullable();
+            $table->string('no_rm')->nullable();
+            $table->string('ttl')->nullable();
             $table->string('alamat')->nullable();
             $table->string('pekerjaan', 100)->nullable();
             $table->enum('jenis_pembayaran', ['UMUM', 'BPJS'])->nullable();
             $table->enum('status_pelayanan', ['DONE', 'PROGRESS', 'CANCELLED'])->default('PROGRESS');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
