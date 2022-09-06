@@ -56,4 +56,10 @@ class PasienRepository implements PasienRepositoryInterface
         $pasien->users()->delete();
         return $pasien->delete();
     }
+
+    public function detailDataPasien($pasienID)
+    {
+        $pasien = Pasien::find($pasienID);
+        return $pasien;
+    }
 }

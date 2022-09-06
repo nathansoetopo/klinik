@@ -26,7 +26,7 @@
                                     </tr>
                                     <tr>
                                         <td style="padding-bottom:20px" class="d-flex justify-content-center">
-                                            <b>Jacob</b>
+                                            <b>{{ $pasien->users->name }}</b>
                                         </td>
                                     </tr>
                                     <tr>
@@ -34,30 +34,29 @@
                                     </tr>
                                     <tr>
                                         <td style="padding-bottom:20px" class="d-flex justify-content-center">
-                                            <b>41316</b>
+                                            <b>{{ $pasien->no_reg }}</b>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <td class="d-flex justify-content-center">Jenis Kelamin</td>
                                     </tr>
                                     <tr>
                                         <td style="padding-bottom:20px" class="d-flex justify-content-center">
                                             <b>41316</b>
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                     <tr>
                                         <td class="d-flex justify-content-center">Alamat Lengkap</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding-bottom:20px" class="d-flex justify-content-center"><b>Desa
-                                                Rejowinangun</b></td>
+                                        <td style="padding-bottom:20px" class="d-flex justify-content-center"><b>{{ $pasien->alamat }}</b></td>
                                     </tr>
                                     <tr>
                                         <td class="d-flex justify-content-center">Tempat Tanggal Lahir</td>
                                     </tr>
                                     <tr>
                                         <td style="padding-bottom:20px" class="d-flex justify-content-center">
-                                            <b>Blitar</b>
+                                            <b>{{ $pasien->ttl }}</b>
                                         </td>
                                     </tr>
                                 </tbody>

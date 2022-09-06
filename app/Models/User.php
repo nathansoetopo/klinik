@@ -26,8 +26,12 @@ class User extends Authenticatable
 
         static::created(function ($model) {
             // $model->id .= Str::uuid()->toString();
-            $model->username .= 'USER' . str_pad($model->id, 9, 0, STR_PAD_LEFT);
-            $model->password .= Hash::make('PASS' . str_pad($model->id, 9, 0, STR_PAD_LEFT));
+            if ($model->username == null) {
+                $model->username .= 'USER' . str_pad($model->id, 9, 0, STR_PAD_LEFT);
+            }
+            if ($model->password == null) {
+                $model->password .= Hash::make('PASS' . str_pad($model->id, 9, 0, STR_PAD_LEFT));
+            }
             $model->save();
         });
     }
