@@ -19,28 +19,28 @@ class PasienSeeder extends Seeder
         collect([
             [
                 'user_id' => 5,
-                'ttl' => Carbon::now(),
+                'ttl' => 'Unknown, ' . Carbon::now()->format('d-m-Y'),
                 'alamat' => 'Ngemplak',
                 'pekerjaan' => 'Geh Developer',
                 'jenis_pembayaran' => 'UMUM',
             ],
             [
                 'user_id' => 6,
-                'ttl' => Carbon::now(),
+                'ttl' => 'Unknown, ' . Carbon::now()->format('d-m-Y'),
                 'alamat' => 'Ngehe',
                 'pekerjaan' => 'Female Dancer',
                 'jenis_pembayaran' => 'BPJS',
             ],
             [
                 'user_id' => 7,
-                'ttl' => Carbon::now(),
+                'ttl' => 'Unknown, ' . Carbon::now()->format('d-m-Y'),
                 'alamat' => 'Zimbabwe',
                 'pekerjaan' => 'Hardcore Killer',
                 'jenis_pembayaran' => 'UMUM',
             ],
             [
                 'user_id' => 8,
-                'ttl' => Carbon::now(),
+                'ttl' => 'Unknown, ' . Carbon::now()->format('d-m-Y'),
                 'alamat' => 'Saudi Arabia',
                 'pekerjaan' => 'Chicken Cutter',
                 'jenis_pembayaran' => 'BPJS',
