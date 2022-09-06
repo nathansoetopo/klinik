@@ -20,6 +20,15 @@ class PasienController extends Controller
         $this->dokterRepository = $dokterRepository;
     }
 
+    public function detail($pasienID)
+    {
+        $pasien = $this->pasienRepository->detailDataPasien($pasienID);
+        if (!$pasien) {
+            return redirect()->back()->with('error', 'Data pasien tidak ditemukan');
+        }
+        return view('admin.datapasiendetail', compact('pasien'));
+    }
+
     public function store(PasienRequest $request)
     {
         $payload = $request->validated();
@@ -33,6 +42,10 @@ class PasienController extends Controller
 
     public function update(PasienRequest $request, $pasienID)
     {
+        $pasien = $this->pasienRepository->detailDataPasien($pasienID);
+        if (!$pasien) {
+            return redirect()->back()->with('error', 'Data pasien tidak ditemukan');
+        }
         $payload = $request->validated();
         try {
             $this->pasienRepository->updateDataPasien($payload, $pasienID);
@@ -44,6 +57,10 @@ class PasienController extends Controller
 
     public function delete($pasienID)
     {
+        $pasien = $this->pasienRepository->detailDataPasien($pasienID);
+        if (!$pasien) {
+            return redirect()->back()->with('error', 'Data pasien tidak ditemukan');
+        }
         try {
             $this->pasienRepository->deleteDataPasien($pasienID);
             return redirect()->back()->with('status', 'Data pasien berhasil dihapus');

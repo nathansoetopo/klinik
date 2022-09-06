@@ -137,7 +137,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{url('admin/datapasiendetail')}}" class="btn btn-info">Detail</a>
+                                        <a href="{{url('admin/data-pasien/'.$p->id.'/detail')}}" class="btn btn-info">Detail</a>
                                         <a href="#" data-toggle="modal"
                                             data-target="#updateData{{ $p->id }}">
                                             <button type="button" class="btn btn-warning">Update</button>

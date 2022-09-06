@@ -31,9 +31,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/data-pasien', [PasienController::class, 'store']);
             Route::post('/data-pasien/{pasienID}/update', [PasienController::class, 'update']);
             Route::get('/data-pasien/{pasienID}/delete', [PasienController::class, 'delete']);
-            Route::get('/datapasiendetail', function () {
-                return view('datapasiendetail');
-            });
+            Route::get('/data-pasien/{pasienID}/detail', [PasienController::class, 'detail']);
         });
     });
 });
