@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SOAPController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
@@ -17,7 +18,7 @@ use App\Http\Controllers\PasienController;
 |
 */
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -32,6 +33,11 @@ Route::middleware('auth')->group(function () {
             Route::post('/data-pasien/{pasienID}/update', [PasienController::class, 'update']);
             Route::get('/data-pasien/{pasienID}/delete', [PasienController::class, 'delete']);
             Route::get('/data-pasien/{pasienID}/detail', [PasienController::class, 'detail']);
+            Route::post('/data-pasien/{pasienID}/soap', [SOAPController::class, 'store']);
+            Route::get('/soap', [SOAPController::class, 'index']);
+            Route::get('/soap/{pasienID}/list', [SOAPController::class, 'lists']);
+            Route::get('/soap/{soapID}/detail', [SOAPController::class, 'detail']);
+            Route::post('/soap/{soapID}/update', [SOAPController::class, 'update']);
         });
     });
 });

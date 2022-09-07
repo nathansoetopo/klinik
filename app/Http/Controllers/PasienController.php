@@ -26,7 +26,7 @@ class PasienController extends Controller
         if (!$pasien) {
             return redirect()->back()->with('error', 'Data pasien tidak ditemukan');
         }
-        return view('admin.datapasiendetail', compact('pasien'));
+        return view('admin.datapasiendetail', compact('pasien', 'pasienID'));
     }
 
     public function store(PasienRequest $request)
