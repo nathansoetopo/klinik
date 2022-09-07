@@ -7,8 +7,10 @@
             <a href="index.html">St</a>
         </div>
         <ul class="sidebar-menu">
-            <li><a class="nav-link @if(Request::is('admin')) active @endif" href="{{url('admin/')}}"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
+            <li><a class="nav-link @if(Request::is('admin')) active @endif" href="{{url('admin/')}}"><i class="fas fa-columns"></i> <span>Dashboard</span></a></li>
             <li><a class="nav-link @if(Request::is('admin/data-pasien')) active @endif" href="{{ url('/admin/data-pasien') }}"><i class="fas fa-user"></i> <span>Data Pasien</span></a>
+            </li>
+            <li><a class="nav-link @if(Request::is('admin/soap')) active @endif" href="{{ url('/admin/soap') }}"><i class="fas fa-digital-tachograph"></i></i> <span>SOAP</span></a>
             </li>
         </ul>
         <div class="hide-sidebar-mini" style="position:fixed; bottom:3vh; width:250px;">

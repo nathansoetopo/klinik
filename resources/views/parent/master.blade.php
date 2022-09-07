@@ -13,7 +13,7 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     {{-- Jquery --}}
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
@@ -112,9 +112,17 @@
                 }]
             },
             options: {
-                legend: {display: false},
+                legend: {
+                    display: false
+                },
             }
         });
+
+    </script>
+    <script>
+        function resetFunction() {
+            document.getElementById("myForm").reset();
+        }
 
     </script>
 </body>

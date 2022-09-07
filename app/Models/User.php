@@ -66,4 +66,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Dokter::class);
     }
+
+    public function soap()
+    {
+        return $this->hasMany(Soap::class);
+    }
 }

@@ -65,11 +65,11 @@
                             <form method="POST" action="{{url('login')}}" class="needs-validation" novalidate="">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="email">Email</label>
+                                    <label for="email">Email/Username</label>
                                     <input id="email" type="text" class="form-control" name="credential" tabindex="1"
                                         required autofocus>
                                     <div class="invalid-feedback">
-                                        Please fill in your email
+                                        Please fill in your email or username
                                     </div>
                                 </div>
 
