@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ObatController;
 use App\Http\Controllers\SOAPController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AdminController;
@@ -38,6 +39,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/soap/{pasienID}/list', [SOAPController::class, 'lists']);
             Route::get('/soap/{soapID}/detail', [SOAPController::class, 'detail']);
             Route::post('/soap/{soapID}/update', [SOAPController::class, 'update']);
+            Route::get('/medicines', [ObatController::class, 'index']);
+            Route::post('/medicines', [ObatController::class, 'store']);
+            Route::post('/medicines/{medicineID}/update', [ObatController::class, 'update']);
+            Route::get('/medicines/{medicineID}/delete', [ObatController::class, 'delete']);
         });
     });
 });

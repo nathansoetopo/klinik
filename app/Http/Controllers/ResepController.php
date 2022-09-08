@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class ResepController extends Controller
 {
-    //
+    public function store()
+    {
+        //
+    }
 }
