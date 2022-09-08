@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('medicines', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('desc');
+            $table->enum('type', ['Cair', 'Tablet', 'Kapsul', 'Oles', 'Suppositoria', 'Tetes', 'Inhaler', 'Injection', 'Implan']);
+            $table->enum('category', ['Bebas', 'Bebas Terbatas', 'Keras', 'Narkotika', 'Fitofarmaka', 'Herbal Terstandar', 'Herbal', 'Psikotopika']);
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('medicines');
+    }
+};

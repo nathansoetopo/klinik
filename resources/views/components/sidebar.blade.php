@@ -12,6 +12,8 @@
             </li>
             <li><a class="nav-link @if(Request::is('admin/soap')) active @endif" href="{{ url('/admin/soap') }}"><i class="fas fa-digital-tachograph"></i></i> <span>SOAP</span></a>
             </li>
+            <li><a class="nav-link @if(Request::is('admin/medicines')) active @endif" href="{{ url('/admin/medicines') }}"><i class="fas fa-capsules"></i></i> <span>Data Obat</span></a>
+            </li>
         </ul>
         <div class="hide-sidebar-mini" style="position:fixed; bottom:3vh; width:250px;">
             <hr style="border-radius: 5px; border: 2px solid #66CDAA; margin-left:5%; margin-right:5%">
