@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PasienRequest;
+use App\Models\Medicine;
 use App\Models\Pasien;
+use App\Models\Resep;
 use Illuminate\Http\Request;
 use App\Repositories\DokterRepository;
 use App\Repositories\PasienRepository;
@@ -23,10 +25,12 @@ class PasienController extends Controller
     public function detail($pasienID)
     {
         $pasien = $this->pasienRepository->detailDataPasien($pasienID);
+        $obat = Medicine::all();
+        $reseps = $pasien->resep()->paginate(5);
         if (!$pasien) {
             return redirect()->back()->with('error', 'Data pasien tidak ditemukan');
         }
-        return view('admin.datapasiendetail', compact('pasien', 'pasienID'));
+        return view('admin.datapasiendetail', compact('pasien', 'pasienID', 'obat', 'reseps'));
     }
 
     public function store(PasienRequest $request)

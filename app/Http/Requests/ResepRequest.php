@@ -24,6 +24,14 @@ class ResepRequest extends FormRequest
      */
     public function rules()
     {
-        return [];
+        return [
+            'obat' => 'required|array',
+            'obat.*.pasien_id' => 'required',
+            'obat.*.medicine_id' => 'required',
+            'obat.*.desc' => 'required|string',
+            'obat.*.jml_obat' => 'required|numeric',
+            'obat.*.aturan_pakai' => 'required|numeric',
+            'obat.*.tanggal' => 'required|date',
+        ];
     }
 }

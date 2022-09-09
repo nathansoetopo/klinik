@@ -371,34 +371,35 @@
                             <div id="menu2" class="tab-pane fade" style="background-color: white">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form action="{{url('test-post-data')}}" method="POST" id="form-obat">
+                                        <form action="{{url('admin/resep')}}" method="POST" id="form-obat">
                                             @csrf
                                             <div class="container">
+                                                <input type="hidden" name="obat[0][pasien_id]" value="{{ $pasienID }}">
                                                 <label for="obat">Obat</label>
                                                 <div class="form-group">
-                                                    <textarea class="form-control" id="obat" name="obat[0][obat]"
-                                                        placeholder="Masukkan Obat" style="height:100px;"></textarea>
+                                                    <textarea class="form-control" id="obat" name="obat[0][desc]"
+                                                        placeholder="Masukkan Deskripsi Obat" style="height:100px;"></textarea>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-7">
                                                         <label for="inputObat">Nama obat</label>
                                                         <select class="form-control" id="inputObat"
-                                                            name="obat[0][select]">'>
-                                                            <option value="1">Obat 1</option>
-                                                            <option value="2">Obat 2</option>
-                                                            <option value="3">Obat 3</option>
+                                                            name="obat[0][medicine_id]">'>
+                                                            @foreach ($obat as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->name }} - {{ $item->type }} - {{ $item->category }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-5">
                                                         <label for="inputState">Jumlah</label>
-                                                        <input type="number" name="obat[0][qty]" class="form-control"
+                                                        <input type="number" name="obat[0][jml_obat]" class="form-control"
                                                             min="1" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-7">
                                                         <label for="aturan">Aturan pakai</label>
-                                                        <select class="form-control" name="obat[0][aturan]" id="aturan">
+                                                        <select class="form-control" name="obat[0][aturan_pakai]" id="aturan">
                                                             <option>1</option>
                                                             <option>2</option>
                                                             <option>3</option>
@@ -456,27 +457,60 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Aksi</th>
-                                                    <th scope="col">Detail Resep</th>
+                                                    <th scope="col">Nama Obat</th>
+                                                    <th scope="col">Desc</th>
+                                                    <th scope="col">Jumlah Obat</th>
+                                                    <th scope="col">Aturan Pakai</th>
                                                     <th scope="col">Tanggal</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($reseps as $resep)
+                                                    
+                                                @endforeach
                                                 <tr>
                                                     <td><button type="button" id="copy1" class="btn rounded text-white"
-                                                            onclick="copyClipboard('Autan, Borax, Didik',1)"
+                                                            onclick="copyClipboard('{{ $resep->medicines->name }}, {{ $resep->desc }}, {{ $resep->jml_obat }}')"
                                                             style="background-color: #2B5BFF">copy</button></td>
-                                                    <td>Autan, Borax, Didik</td>
-                                                    <td>12-09-2022</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><button type="button" id="copy2" class="btn rounded text-white"
-                                                            onclick="copyClipboard('Autan, Borax, Didik',2)"
-                                                            style="background-color: #2B5BFF">copy</button></td>
-                                                    <td>Autan, Borax, Didik</td>
-                                                    <td>12-09-2022</td>
+                                                    <td>{{ $resep->medicines->name }}</td>
+                                                    <td>{{ $resep->desc }}</td>
+                                                    <td>{{ $resep->jml_obat }}</td>
+                                                    <td>{{ $resep->aturan_pakai }}</td>
+                                                    <td>{{ $resep->tanggal }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="buttons">
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination">
+                                                    <li
+                                                        class="{{ ($reseps->currentPage() == 1) ? 'page-item disabled' : 'page-item' }}">
+                                                        <a class="page-link"
+                                                            href="{{ $reseps->url($reseps->currentPage()-1) }}"
+                                                            aria-label="Previous">
+                                                            <span aria-hidden="true">&laquo;</span>
+                                                            <span class="sr-only">Previous</span>
+                                                        </a>
+                                                    </li>
+                                                    @for ($i = 1; $i <= $reseps->lastPage(); $i++)
+                                                    <li
+                                                        class="{{ ($reseps->currentPage() == $i) ? 'page-item active' : 'page-item' }}">
+                                                        <a class="page-link" href="{{ $reseps->url($i) }}">{{ $i }}</a></li>
+                                                    @endfor
+                                                    <li
+                                                        class="{{ ($reseps->currentPage() == $reseps->lastPage()) ? 'page-item disabled' : 'page-item' }}">
+                                                        <a class="page-link"
+                                                            href="{{ $reseps->url($reseps->currentPage()+1) }}"
+                                                            aria-label="Next">
+                                                            <span aria-hidden="true">&raquo;</span>
+                                                            <span class="sr-only">Next</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

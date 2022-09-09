@@ -32,4 +32,9 @@ class Pasien extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function resep()
+    {
+        return $this->hasMany(Resep::class);
+    }
 }
