@@ -12,4 +12,9 @@ class Medicine extends Model
 
     protected $table = 'medicines';
     protected $guarded = ['id'];
+
+    public function resep()
+    {
+        return $this->hasMany(Resep::class);
+    }
 }

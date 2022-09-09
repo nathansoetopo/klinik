@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pasien_id')->constrained('pasien')->onUpdate('cascade')->onDelete('cascade');
             // $table->string('obat', 100)->nullable();
-            $table->string('nama_obat', 50)->nullable();
+            $table->foreignId('medicine_id')->constrained('medicines')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('desc');
             $table->integer('jml_obat')->nullable();
             $table->string('aturan_pakai', 100)->nullable();
             $table->date('tanggal')->nullable();

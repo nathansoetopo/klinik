@@ -6,6 +6,7 @@ use App\Http\Controllers\SOAPController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ResepController;
 use App\Http\Controllers\PasienController;
 
 /*
@@ -43,6 +44,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/medicines', [ObatController::class, 'store']);
             Route::post('/medicines/{medicineID}/update', [ObatController::class, 'update']);
             Route::get('/medicines/{medicineID}/delete', [ObatController::class, 'delete']);
+            Route::post('/resep', [ResepController::class, 'store']);
         });
     });
 });
