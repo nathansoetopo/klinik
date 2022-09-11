@@ -59,38 +59,26 @@
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <tr>
-                                    <th>No Reg</th>
-                                    <th>Nama Pasien</th>
-                                    <th>TTL</th>
-                                    <th>Pembayaran</th>
-                                    <th>No RM</th>
-                                    <th>Status</th>
+                                    <th>No</th>
+                                    <th>Diagnosis Klinis</th>
+                                    <th>Informasi Tambahan</th>
+                                    <th>Nama Pemeriksaan</th>
+                                    <th>Tanggal Dibuat</th>
                                     <th>Action</th>
                                 </tr>
-                                @foreach ($pasien as $p)
+                                @foreach ($labs as $key => $p)
                                 <tr>
-                                    <td><a href="{{url('admin/datapasiendetail')}}">{{ $p->no_reg }}</a></td>
-                                    <td class="font-weight-600">{{ $p->users->name }}</td>
-                                    <td class="font-weight-400">{{ $p->ttl }}</td>
+                                    <td><a href="#">{{ $key+1 }}</a></td>
+                                    <td class="font-weight-600">{{ $p->diagnosis_klinis }}</td>
+                                    <td class="font-weight-400">{{ $p->info_tambahan }}</td>
                                     <td>
-                                        @if($p->jenis_pembayaran == 'UMUM')
-                                        <div class="badge badge-success">Umum</div>
-                                        @else
-                                        <div class="badge badge-info">BPJS</div>
-                                        @endif
-                                    </td>
-                                    <td>{{ $p->no_rm }}</td>
-                                    <td>
-                                        @if($p->status_pelayanan == 'DONE')
-                                        <div class="badge badge-success">Done</div>
-                                        @elseif($p->status_pelayanan == 'PROGRESS')
-                                        <div class="badge badge-warning">Progress</div>
-                                        @elseif($p->status_pelayanan == 'CANCELLED')
-                                        <div class="badge badge-danger">Cancelled</div>
-                                        @endif
+                                        {{ $p->nama_pemeriksaan }}
                                     </td>
                                     <td>
-                                        <a href="{{url('admin/soap/'.$p->users->id.'/list')}}" class="btn btn-info">Tampilkan SOAP</a>
+                                        {{ $p->created_at }}
+                                    </td>
+                                    <td>
+                                        <a href="{{url('admin/lab/'.$p->id.'/detail')}}" class="btn btn-info">Detail Diagnosis Lab</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -101,23 +89,23 @@
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination">
                                         <li
-                                            class="{{ ($pasien->currentPage() == 1) ? 'page-item disabled' : 'page-item' }}">
+                                            class="{{ ($labs->currentPage() == 1) ? 'page-item disabled' : 'page-item' }}">
                                             <a class="page-link"
-                                                href="{{ $pasien->url($pasien->currentPage()-1) }}"
+                                                href="{{ $labs->url($labs->currentPage()-1) }}"
                                                 aria-label="Previous">
                                                 <span aria-hidden="true">&laquo;</span>
                                                 <span class="sr-only">Previous</span>
                                             </a>
                                         </li>
-                                        @for ($i = 1; $i <= $pasien->lastPage(); $i++)
+                                        @for ($i = 1; $i <= $labs->lastPage(); $i++)
                                         <li
-                                            class="{{ ($pasien->currentPage() == $i) ? 'page-item active' : 'page-item' }}">
-                                            <a class="page-link" href="{{ $pasien->url($i) }}">{{ $i }}</a></li>
+                                            class="{{ ($labs->currentPage() == $i) ? 'page-item active' : 'page-item' }}">
+                                            <a class="page-link" href="{{ $labs->url($i) }}">{{ $i }}</a></li>
                                         @endfor
                                         <li
-                                            class="{{ ($pasien->currentPage() == $pasien->lastPage()) ? 'page-item disabled' : 'page-item' }}">
+                                            class="{{ ($labs->currentPage() == $labs->lastPage()) ? 'page-item disabled' : 'page-item' }}">
                                             <a class="page-link"
-                                                href="{{ $pasien->url($pasien->currentPage()+1) }}"
+                                                href="{{ $labs->url($labs->currentPage()+1) }}"
                                                 aria-label="Next">
                                                 <span aria-hidden="true">&raquo;</span>
                                                 <span class="sr-only">Next</span>

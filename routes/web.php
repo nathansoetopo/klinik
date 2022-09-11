@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LabController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\SOAPController;
 use App\Http\Controllers\TestController;
@@ -45,6 +46,11 @@ Route::middleware('auth')->group(function () {
             Route::post('/medicines/{medicineID}/update', [ObatController::class, 'update']);
             Route::get('/medicines/{medicineID}/delete', [ObatController::class, 'delete']);
             Route::post('/resep', [ResepController::class, 'store']);
+            Route::get('/lab', [LabController::class, 'index']);
+            Route::post('/lab', [LabController::class, 'store']);
+            Route::get('/lab/{pasienID}/list', [LabController::class, 'lists']);
+            Route::get('/lab/{labID}/detail', [LabController::class, 'detail']);
+            Route::post('/lab/{labID}/update', [LabController::class, 'update']);
         });
     });
 });

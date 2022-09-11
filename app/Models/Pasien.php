@@ -37,4 +37,9 @@ class Pasien extends Model
     {
         return $this->hasMany(Resep::class);
     }
+
+    public function diagnosis_lab()
+    {
+        return $this->hasMany(Lab::class);
+    }
 }

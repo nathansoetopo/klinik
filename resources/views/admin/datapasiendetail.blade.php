@@ -466,8 +466,6 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($reseps as $resep)
-                                                    
-                                                @endforeach
                                                 <tr>
                                                     <td><button type="button" id="copy1" class="btn rounded text-white"
                                                             onclick="copyClipboard('{{ $resep->medicines->name }}, {{ $resep->desc }}, {{ $resep->jml_obat }}')"
@@ -478,6 +476,7 @@
                                                     <td>{{ $resep->aturan_pakai }}</td>
                                                     <td>{{ $resep->tanggal }}</td>
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -515,28 +514,27 @@
                                 </div>
                             </div>
                             <div id="menu4" class="tab-pane fade" style="background-color: white">
-                                <form action="#" method="POST">
+                                <form action="{{ url('admin/lab') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="container">
+                                        <input type="hidden" name="pasien_id" value="{{ $pasienID }}">
                                         <label for="diagnosa">Diagnosa Klinis</label>
                                         <div class="form-group">
-                                            <textarea class="form-control" id="diagnosa" placeholder="Masukkan Diagnosa"
+                                            <textarea class="form-control" id="diagnosa" name="diagnosis_klinis" placeholder="Masukkan Diagnosa"
                                                 style="height: 100px"></textarea>
                                         </div>
                                         <label for="infoTambahan">Informasi Tambahan</label>
                                         <div class="form-group">
                                             <textarea class="form-control" id="infoTambahan"
-                                                placeholder="Masukkan Informasi Tambahan"
+                                                placeholder="Masukkan Informasi Tambahan" name="info_tambahan"
                                                 style="height: 100px"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="namaPemeriksaan">Nama Pemeriksaan</label>
-                                            <select class="js-example-basic-multiple" style="height: 42px"
-                                                id="namaPemeriksaan" name="namaPemeriksaan[]" multiple>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
+                                            <label for="alergi">Nama Pemeriksaan</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="alergi"
+                                                    name="nama_pemeriksaan" placeholder="Masukkan nama pemeriksaan">
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6 p-3">
