@@ -90,7 +90,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{url('admin/soap/'.$p->users->id.'/list')}}" class="btn btn-info">Tampilkan SOAP</a>
+                                        <a href="{{url('admin/lab/'.$p->id.'/list')}}" class="btn btn-info">Tampilkan Diagnosis Lab</a>
                                     </td>
                                 </tr>
                                 @endforeach
