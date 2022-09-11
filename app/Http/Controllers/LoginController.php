@@ -86,6 +86,6 @@ class LoginController extends Controller
     public function logout()
     {
         $user = request()->user();
-        return redirect('/login')->with('status', 'Berhasil logout');
+        return redirect('/')->with('status', 'Berhasil logout');
     }
 }
