@@ -42,4 +42,14 @@ class Pasien extends Model
     {
         return $this->hasMany(Lab::class);
     }
+
+    public function diagnosis_rad()
+    {
+        return $this->hasMany(Rad::class);
+    }
+
+    public function riwayat_kontrol()
+    {
+        return $this->hasMany(RiwayatKontrol::class);
+    }
 }
