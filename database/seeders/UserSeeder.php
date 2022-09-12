@@ -71,7 +71,8 @@ class UserSeeder extends Seeder
             $user->id == 2 ? $user->assignRole('dokter') : '';
             $user->id == 3 ? $user->assignRole('dokter') : '';
             $user->id == 4 ? $user->assignRole('dokter') : '';
-            $user->id > 4 ? $user->assignRole('pasien') : '';
+            $user->id == 5 ? $user->assignRole('kasir') : '';
+            $user->id > 5 ? $user->assignRole('pasien') : '';
         });
     }
 }

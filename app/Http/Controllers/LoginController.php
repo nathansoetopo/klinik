@@ -78,6 +78,9 @@ class LoginController extends Controller
             if ($user->hasRole('admin')) {
                 return redirect('/admin')->with('status', 'Login berhasil');
             }
+            if ($user->hasRole('kasir')) {
+                return redirect('/kasir')->with('status', 'Login berhasil');
+            }
         } catch (Exception $error) {
             return redirect('/login')->with('error', $error);
         }

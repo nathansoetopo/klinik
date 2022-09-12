@@ -28,6 +28,10 @@ class RoleSeeder extends Seeder
                 'name' => 'pasien',
                 'guard_name' => 'web',
             ],
+            [
+                'name' => 'kasir',
+                'guard_name' => 'web',
+            ],
         ])->each(function ($roles) {
             Role::firstOrcreate($roles);
         });
