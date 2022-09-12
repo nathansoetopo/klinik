@@ -11,6 +11,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResepController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\KasirController;
 use App\Http\Controllers\KontrolController;
 
 /*
@@ -69,6 +70,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/invoice/{pasienID}/create', [InvoiceController::class, 'create']);
             Route::post('/invoice/{pasienID}/store', [InvoiceController::class, 'store']);
             Route::get('/invoice/{invoiceID}/tagihan', [InvoiceController::class, 'createInvoice']);
+        });
+    });
+    Route::middleware('is.kasir')->group(function () {
+        Route::prefix('kasir')->group(function () {
+            Route::get('/', [KasirController::class, 'index']);
         });
     });
 });

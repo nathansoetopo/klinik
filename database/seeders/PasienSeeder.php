@@ -17,13 +17,13 @@ class PasienSeeder extends Seeder
     public function run()
     {
         collect([
-            [
-                'user_id' => 5,
-                'ttl' => 'Unknown, ' . Carbon::now()->format('d-m-Y'),
-                'alamat' => 'Ngemplak',
-                'pekerjaan' => 'Geh Developer',
-                'jenis_pembayaran' => 'UMUM',
-            ],
+            // [
+            //     'user_id' => 5,
+            //     'ttl' => 'Unknown, ' . Carbon::now()->format('d-m-Y'),
+            //     'alamat' => 'Ngemplak',
+            //     'pekerjaan' => 'Geh Developer',
+            //     'jenis_pembayaran' => 'UMUM',
+            // ],
             [
                 'user_id' => 6,
                 'ttl' => 'Unknown, ' . Carbon::now()->format('d-m-Y'),
