@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('riwayat_kontrol', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pasien_id')->constrained('pasien')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('tindakan', 100);
-            $table->string('alasan kontrol', 100);
-            $table->string('rencana_tindak_lanjut', 100);
-            $table->date('tgl_kontrol_lagi');
-            $table->string('jenis_bayar', 100);
+            $table->string('diagnosis');
+            $table->string('tindakan');
+            $table->string('alasan');
+            $table->string('rencana');
+            $table->date('tgl_kontrol');
+            $table->enum('jenis_bayar', ['UMUM', 'BPJS']);
             $table->timestamps();
         });
     }

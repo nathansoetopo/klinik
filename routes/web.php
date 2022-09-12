@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LabController;
+use App\Http\Controllers\RADController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\SOAPController;
 use App\Http\Controllers\TestController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResepController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\KontrolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +53,16 @@ Route::middleware('auth')->group(function () {
             Route::get('/lab/{pasienID}/list', [LabController::class, 'lists']);
             Route::get('/lab/{labID}/detail', [LabController::class, 'detail']);
             Route::post('/lab/{labID}/update', [LabController::class, 'update']);
+            Route::get('/rad', [RADController::class, 'index']);
+            Route::post('/rad', [RADController::class, 'store']);
+            Route::get('/rad/{pasienID}/list', [RADController::class, 'lists']);
+            Route::get('/rad/{radID}/detail', [RADController::class, 'detail']);
+            Route::post('/rad/{radID}/update', [RADController::class, 'update']);
+            Route::get('/kontrol', [KontrolController::class, 'index']);
+            Route::post('/kontrol', [KontrolController::class, 'store']);
+            Route::get('/kontrol/{pasienID}/list', [KontrolController::class, 'lists']);
+            Route::get('/kontrol/{pasienID}/detail', [KontrolController::class, 'detail']);
+            Route::post('/kontrol/{kontrolID}/update', [KontrolController::class, 'update']);
         });
     });
 });
