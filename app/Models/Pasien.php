@@ -52,4 +52,9 @@ class Pasien extends Model
     {
         return $this->hasMany(RiwayatKontrol::class);
     }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class);
+    }
 }

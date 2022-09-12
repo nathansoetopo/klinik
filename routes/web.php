@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResepController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\KontrolController;
 
 /*
@@ -63,6 +64,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/kontrol/{pasienID}/list', [KontrolController::class, 'lists']);
             Route::get('/kontrol/{pasienID}/detail', [KontrolController::class, 'detail']);
             Route::post('/kontrol/{kontrolID}/update', [KontrolController::class, 'update']);
+            Route::get('/invoice', [InvoiceController::class, 'index']);
+            Route::get('/invoice/{pasienID}/list', [InvoiceController::class, 'lists']);
+            Route::get('/invoice/{pasienID}/create', [InvoiceController::class, 'create']);
+            Route::post('/invoice/{pasienID}/store', [InvoiceController::class, 'store']);
+            Route::get('/invoice/{invoiceID}/tagihan', [InvoiceController::class, 'createInvoice']);
         });
     });
 });

@@ -27,6 +27,10 @@
             <li><a class="nav-link @if (Request::is('admin/kontrol')) active @endif"
                     href="{{ url('/admin/kontrol') }}"><i class="fas fa-eye"></i></i> <span>Kontrol</span></a>
             </li>
+            <li><a class="nav-link @if (Request::is('admin/invoice')) active @endif"
+                    href="{{ url('/admin/invoice') }}"><i class="fas fa-file-invoice-dollar"></i></i>
+                    <span>Invoice</span></a>
+            </li>
         </ul>
         <div class="hide-sidebar-mini" style="position:fixed; bottom:3vh; width:250px;">
             <hr style="border-radius: 5px; border: 2px solid #66CDAA; margin-left:5%; margin-right:5%">
