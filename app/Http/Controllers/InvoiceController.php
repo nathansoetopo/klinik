@@ -50,6 +50,7 @@ class InvoiceController extends Controller
     {
         $payload = $request->validated();
         $payload['payment_total'] = 0;
+        // return $payload;
         foreach ($payload['biaya_soap'] as $item) {
             $payload['payment_total'] += $item;
         }
@@ -65,6 +66,7 @@ class InvoiceController extends Controller
         foreach ($payload['biaya_resep'] as $item) {
             $payload['payment_total'] += $item;
         }
+        // return $payload['payment_total'];
         try {
             Invoice::create($payload);
             return redirect('admin/invoice/' . request('pasien_id') . '/list')->with('status', 'Data invoice berhasil dibuat');

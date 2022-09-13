@@ -15,7 +15,7 @@
 
 <body>
     <div class="container">
-        <h1>Tagihan Invoice</h1>
+        <h1>Bukti Invoice</h1>
         <div class="form-group">
             <label for="input">Invoice Code</label>
             <input type="text" class="form-control" name="inv_code" id="" value="{{ $invoice->inv_code }}"
@@ -34,6 +34,11 @@
         <div class="form-group">
             <label for="input">Payment Status</label>
             <input type="text" class="form-control" id="" value="{{ $invoice->payment_status }}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="input">Cashback</label>
+            <input type="text" class="form-control" id="" name="cashback"
+                value="Rp. {{ number_format($cashback) }}" readonly>
         </div>
     </div>
 

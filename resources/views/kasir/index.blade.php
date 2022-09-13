@@ -36,7 +36,8 @@
             @endif
             <div class="row">
                 <div class="col-12">
-                    <form action="">
+                    <form action="{{ url('kasir/') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group">
                             <label for="search">Search Invoice</label>
                             <input type="text" class="form-control" id="search" name="inv_code"

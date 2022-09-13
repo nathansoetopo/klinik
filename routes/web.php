@@ -75,6 +75,9 @@ Route::middleware('auth')->group(function () {
     Route::middleware('is.kasir')->group(function () {
         Route::prefix('kasir')->group(function () {
             Route::get('/', [KasirController::class, 'index']);
+            Route::post('/', [KasirController::class, 'search']);
+            Route::post('/{invCode}/payment', [KasirController::class, 'payBill']);
+            Route::post('/create-payment', [KasirController::class, 'payment']);
         });
     });
 });
