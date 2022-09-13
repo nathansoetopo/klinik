@@ -26,7 +26,8 @@ class AdminController extends Controller
     public function index()
     {
         $dokter = $this->dokterRepository->getAllPagination();
-        $pasien = $this->pasienRepository->getAllByDatePagination(Carbon::now()->format('Y-m-d'));
+        // $pasien = $this->pasienRepository->getAllByDatePagination(Carbon::now()->format('Y-m-d'));
+        $pasien = $this->pasienRepository->getAllPagination();
         $today = $this->today;
         $year = $this->year;
         return view('admin.index', compact('pasien', 'dokter', 'today', 'year'));
