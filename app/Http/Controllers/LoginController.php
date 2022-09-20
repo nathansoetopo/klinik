@@ -45,13 +45,13 @@ class LoginController extends Controller
             ]);
             // jika fail saat divalidasi
             if ($validator->fails()) {
-                return redirect('/login')->withErrors($validator)->withInput();
+                return redirect('/')->withErrors($validator)->withInput();
             }
             // khusus untuk client jika login dari username
             if ($credentialType == 'username') {
                 if ($user == null) {
                     //ketika user login dengan username, kemudian username tidak ditemukan
-                    return redirect('/login')->with('error', 'Username tidak ditemukan');
+                    return redirect('/')->with('error', 'Username tidak ditemukan');
                 } else {
                     $email = $user->email;
                 }
@@ -69,10 +69,10 @@ class LoginController extends Controller
             ];
             $user = User::with('roles')->where('email', $credential)->first();
             if (!$user) {
-                return redirect('/login')->with('error', 'Email tidak ditemukan');
+                return redirect('/')->with('error', 'Email tidak ditemukan');
             }
             if (!Hash::check($password, $user->password, [])) {
-                return redirect('/login')->with('error', 'Password salah');
+                return redirect('/')->with('error', 'Password salah');
             }
             Auth::login($user);
             if ($user->hasRole('admin')) {
@@ -82,7 +82,7 @@ class LoginController extends Controller
                 return redirect('/kasir')->with('status', 'Login berhasil');
             }
         } catch (Exception $error) {
-            return redirect('/login')->with('error', $error);
+            return redirect('/')->with('error', $error);
         }
     }
 
