@@ -1,12 +1,4 @@
 var i = 0;
-// $("#addForm").click(function() {
-//   ++i;
-//   console.log(0<=i);
-//   // for (let u = 1; u <= i; ++u) {
-//   //   $('.js-example-basic-single'+u+'').select2();
-//   //   console.log(u)
-//   // }
-// });
 $(document).on('click', '#addForm', function () {
   ++i;
   var element = '<div class="container">' +
