@@ -26,11 +26,18 @@ class PasienController extends Controller
     {
         $pasien = $this->pasienRepository->detailDataPasien($pasienID);
         $obat = Medicine::all();
+        $data_obat = [];
+        foreach($obat as $o){
+            $data_obat[] = [
+                $o->id,
+                $o->name,
+            ];
+        }
         $reseps = $pasien->resep()->paginate(5);
         if (!$pasien) {
             return redirect()->back()->with('error', 'Data pasien tidak ditemukan');
         }
-        return view('admin.datapasiendetail', compact('pasien', 'pasienID', 'obat', 'reseps'));
+        return view('admin.datapasiendetail', compact('pasien', 'pasienID', 'obat','data_obat', 'reseps'));
     }
 
     public function store(PasienRequest $request)
