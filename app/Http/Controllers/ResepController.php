@@ -21,7 +21,9 @@ class ResepController extends Controller
     {
         $payload = $request->validated();
         try {
-            $this->resepRepository->store($payload['obat'][0]);
+            foreach ($payload['obat'] as $resep) {
+                $this->resepRepository->store($resep);
+            }
             return redirect()->back()->with('status', 'Data resep berhasil diinputkan');
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
