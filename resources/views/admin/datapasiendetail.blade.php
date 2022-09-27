@@ -168,7 +168,7 @@
                                                         <label for="mmhg">Tensi</label>
                                                         <div class="input-group">
                                                             <input type="text" class="form-control" id="mmhg"
-                                                                name="tensi">
+                                                                name="tensi" placeholder="110/80">
                                                             <div class="input-group-prepend">
                                                                 <div
                                                                     class="input-group-text bg-secondary rounded text-white">
@@ -301,8 +301,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="tindakan">Tindakan Keperawatan</label>
-                                                <select class="form-control js-example-basic-multiple" name="tindakan"
-                                                    id="tindakan">
+                                                <select class="form-control" name="tindakan" id="tindakan">
                                                     {{-- <option value="AL">Tindakan 1</option>
                                                 <option value="ID">Tindakan 2</option>
                                                 <option value="WY">Tindakan 3</option> --}}

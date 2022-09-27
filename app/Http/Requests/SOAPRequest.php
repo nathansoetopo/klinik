@@ -28,7 +28,7 @@ class SOAPRequest extends FormRequest
             'keluhan' => 'required|string',
             'pemeriksaan_objective' => 'required|string',
             'gcs' => 'required|numeric|min:1',
-            'tensi' => 'required|numeric',
+            'tensi' => 'required|string',
             'nadi' => 'required|numeric',
             'rr' => 'required|numeric',
             'suhu' => 'required|numeric',
