@@ -49,9 +49,8 @@ class InvoiceController extends Controller
         return view('admin.data-invoice-create', compact('pasien', 'soap', 'labs', 'rads', 'reseps', 'kontrol'));
     }
 
-    public function store(InvoiceRequest $request)
+    public function calculateInvoices($payload)
     {
-        $payload = $request->validated();
         $payload['payment_total'] = 0;
         // return $payload;
         foreach ($payload['biaya_soap'] as $item) {
@@ -69,9 +68,16 @@ class InvoiceController extends Controller
         foreach ($payload['biaya_resep'] as $item) {
             $payload['payment_total'] += $item;
         }
+        return $payload;
+    }
+
+    public function store(InvoiceRequest $request)
+    {
+        $payload = $request->validated();
+        // $this->calculateInvoices($payload);
         // return $payload['payment_total'];
         try {
-            Invoice::create($payload);
+            Invoice::create($this->calculateInvoices($payload));
             return redirect('admin/invoice/' . request('pasien_id') . '/list')->with('status', 'Data invoice berhasil dibuat');
         } catch (Exception $e) {
             return redirect('admin/invoice/' . request('pasien_id') . '/list')->with('error', $e->getMessage());
