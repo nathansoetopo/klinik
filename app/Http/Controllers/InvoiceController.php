@@ -12,8 +12,8 @@ use App\Models\Pasien;
 // use Barryvdh\DomPDF\PDF;
 use App\Models\Invoice;
 // use Barryvdh\DomPDF\PDF;
-// use Barryvdh\DomPDF\Facade\Pdf as PDF;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
+// use PDF;
 use Illuminate\Http\Request;
 use App\Http\Requests\InvoiceRequest;
 
