@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use Carbon\Carbon;
 use App\Models\Lab;
 use App\Models\Rad;
 use App\Models\Soap;
 use App\Models\Resep;
 use App\Models\Pasien;
+// use Barryvdh\DomPDF\PDF;
 use App\Models\Invoice;
 // use Barryvdh\DomPDF\PDF;
+// use Barryvdh\DomPDF\Facade\Pdf as PDF;
+use PDF;
 use Illuminate\Http\Request;
 use App\Http\Requests\InvoiceRequest;
-use Barryvdh\DomPDF\Facade\Pdf as PDF;
-use Carbon\Carbon;
 
 class InvoiceController extends Controller
 {
