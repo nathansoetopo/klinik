@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('keluhan');
             $table->string('pemeriksaan_objective');
             $table->integer('gcs');
-            $table->float('tensi');
+            $table->string('tensi');
             $table->float('nadi');
             $table->integer('rr');
             $table->float('suhu');

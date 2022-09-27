@@ -13,6 +13,7 @@ use App\Models\Invoice;
 use Illuminate\Http\Request;
 use App\Http\Requests\InvoiceRequest;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
+use Carbon\Carbon;
 
 class InvoiceController extends Controller
 {
@@ -38,11 +39,11 @@ class InvoiceController extends Controller
         if (!$pasien) {
             return redirect()->back()->with('error', 'Data pasien tidak ditemukan');
         }
-        $soap = $pasien->users()->first()->soap()->latest('id')->paginate(5);
-        $labs = $pasien->diagnosis_lab()->latest('id')->paginate(5);
-        $rads = $pasien->diagnosis_rad()->latest('id')->paginate(5);
-        $reseps = $pasien->resep()->latest('id')->paginate(5);
-        $kontrol = $pasien->riwayat_kontrol()->latest('id')->paginate(5);
+        $soap = $pasien->users()->first()->soap()->whereDate('created_at', Carbon::now())->latest('id')->paginate(5);
+        $labs = $pasien->diagnosis_lab()->whereDate('created_at', Carbon::now())->latest('id')->paginate(5);
+        $rads = $pasien->diagnosis_rad()->whereDate('created_at', Carbon::now())->latest('id')->paginate(5);
+        $reseps = $pasien->resep()->whereDate('created_at', Carbon::now())->latest('id')->paginate(5);
+        $kontrol = $pasien->riwayat_kontrol()->whereDate('created_at', Carbon::now())->latest('id')->paginate(5);
         return view('admin.data-invoice-create', compact('pasien', 'soap', 'labs', 'rads', 'reseps', 'kontrol'));
     }
 
